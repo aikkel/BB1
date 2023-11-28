@@ -1,8 +1,55 @@
-body {
-  padding: 50px;
+body,
+html {
+  margin: 0px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  /* font skal ændres, sofia vælger + baggrunds farve? */
 }
 
-a {
-  color: #00B7FF;
+
+
+.footer{
+  padding-top: 20px;
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  padding-bottom: 20px;
+  background-color: #e29393;
+  /* color placeholder for sofia + du kan ændre bare alt hvad du vil om det er str, farve, længde etc., dette er bare som et startpunkt */
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #e29393;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  /* color placeholder for sofia */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom: 1px solid #ccc; 
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.overskrift {
+  margin-top: 10px;
 }
