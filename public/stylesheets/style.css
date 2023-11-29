@@ -53,3 +53,13 @@ html {
 .overskrift {
   margin-top: 10px;
 }
+
+h2 {
+  color: red;
+}
+
+.test {
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
