@@ -1,0 +1,25 @@
+sequelize init
+
+Generated Structure:
+This command will create several directories and files:
+
+config, containing a config.json file for database configurations.
+models, where model files will be located.
+migrations, for database migration files.
+seeders, for seeder files.
+
+
+----------------------------------------------------------------------------
+
+
+Terminal for testing connection: *this creates a folder after success*
+node testConnection.js
+
+
+create seeder file:
+npx sequelize-cli seed:generate --name demo-user
+
+to seed db.
+npx sequelize-cli db:seed:all
+and npx sequelize-cli db:seed:undo to undo the seedings.
+
