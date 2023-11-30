@@ -39,3 +39,20 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+
+// working?
+// Serving static files from the 'public' directory
+app.use(express.static(__dirname + '/public'));
+
+// ...other routes and configurations
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});

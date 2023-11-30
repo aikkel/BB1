@@ -25,7 +25,7 @@ html {
   /* color placeholder for sofia + du kan ændre bare alt hvad du vil om det er str, farve, længde etc., dette er bare som et startpunkt */
 }
 
-.header {
+.container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -33,6 +33,15 @@ html {
   padding: 20px;
   border-bottom: 1px solid #ccc; 
 }
+
+.header {
+  display: flex;
+  justify-content: space-between; /* Align children with space between them */
+  align-items: center; /* Vertically align children */
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
 
 .header-content {
   display: flex;
@@ -43,12 +52,12 @@ html {
 .logo {
   width: 100px;
   height: 100px;
-  background-color: #54afa5;
   border-radius: 50%;
+  background-color: #54afa5;
 }
 
 .header-text {
-  color: #54afa5;
+  color: black;
   font-size: 2.5em;
   -webkit-text-stroke: 1px black;
   text-stroke: 1px black;
@@ -75,19 +84,41 @@ h2 {
   justify-content: space-between;
 }
 
-.box {
-  width: 45%;
-  height: 10%;
-  padding: 40px;
+.boks, 
+.boks2 {
+  width: 100%;
+  height: auto;
   border: 1px solid #000;
-  
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 400px;
 }
 
 .header-sogning {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  gap: 5px;
+}
+
+.header-sogning input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.sogningknap {
+  background-color: #54afa5;
+  color: #545faf;
+  font-size: 2.0em;
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
+  padding-top: 3px;
+  padding: 5px;
+  border-radius: 8px;
 }
 
 .header-text2 {
@@ -97,13 +128,16 @@ h2 {
   text-stroke: 1px black;
 }
 
-.header-box {
-  width: 45%;
-  height: 10%;
-  padding: 40px;
+.header-box,
+.header-box2 {
+  padding: 10px 20px;
   border: 1px solid #000;
-  float: right;
-  /* fix float value */
+  border-radius: 5px;
+  color: #54afa5;
+  font-size: 2.5em;
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
+  justify-content: space-between;
 }
 
 .content-header {
@@ -111,4 +145,11 @@ h2 {
   justify-content: space-between;
   margin-top: 20px;
   float: right;
+  /* fix float value */
 }
+
+.header-sogning input, .header-sogning button {
+  display: inline-block;
+  vertical-align: middle;
+}
+

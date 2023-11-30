@@ -3,37 +3,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
-    <script type="text/javascript" src="/public/javascripts/javascript.js"></script>
+    <script type="text/javascript" src="/public/javascripts/index.js"></script>
     <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <script type="text/javascript" src="javascripts/index.js"></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
-    <header>
+    <header class="container">
         <div class="header">
-            <div class="header-content">
-            <img src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png" alt="Logo" class="logo">
+          <div class="header-content">
+            <a href="/public/html/index.html">
+              <img src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png" alt="Logo" class="logo">
+            </a>
             <div class="header-text">Basensbiler</div>
-            </div>
-
-            
-            <div class="header-sogning">
-                <div class="header-text2">Søg</div>
-            </div>
-
-            <div class="content-header">
-                  <div class="header-box">Minside</div>
-                  <div class="header-box">Login</div>
-                </div>
-            </div>
-
+          </div>
+          
+          <div class="header-sogning">
+            <input type="text" placeholder="Indtast nummerplade.....">
+            <button class="sogningknap"><i class="fas fa-search"></i></button>
+          </div>
+      
+          <div class="content-header">
+            <a href="/public/html/minside.html" class="header-box">Min side</a>
+            <a href="/public/html/login.html" class="header-box2">Login</a>
+          </div>
         </div>
-    </header>
-
+      </header>
 
     
     <div class="content">
-          <div class="box">Forslag</div>
-          <div class="box">Egne Annoncer</div>
+          <div class="boks">Forslag</div>
+          <div class="boks2">Egne Annoncer</div>
         </div>
         <!-- fiks sizing shit -->
     </div>
