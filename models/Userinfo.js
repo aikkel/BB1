@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('UserInfo', {
+    const UserInfo = sequelize.define('UserInfo', {
         name: DataTypes.TEXT,
         email: DataTypes.TEXT,
         phoneNumber: DataTypes.INTEGER,
@@ -9,8 +9,18 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
+        },
+        userRefID: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'User', // name of the User model
+                key: 'ID',     // key in User to which it references
+            }
         }
     }, {
         timestamps: false
     });
+
+    return UserInfo;
 };
