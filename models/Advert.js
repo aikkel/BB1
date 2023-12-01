@@ -5,13 +5,13 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        description: DataTypes.INTEGER,
-        model: DataTypes.NUMERIC,
-        manufacture: DataTypes.INTEGER,
+        description: DataTypes.TEXT, 
+        model: DataTypes.TEXT,       // Assuming model is text
+        manufacture: DataTypes.TEXT, // Assuming manufacture is text
         year: DataTypes.INTEGER,
         price: DataTypes.INTEGER,
-        licencePlate: DataTypes.INTEGER,
-        picture: DataTypes.INTEGER
+        licencePlate: DataTypes.TEXT, // Matching the Car model's data type
+        picture: DataTypes.TEXT       // Assuming picture is a URL or file path
     }, {
         timestamps: false
     });
