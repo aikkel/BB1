@@ -8,11 +8,6 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true
       },
-      description: Sequelize.TEXT, 
-      model: Sequelize.TEXT,       
-      manufacture: Sequelize.TEXT, 
-      year: Sequelize.INTEGER,
-      price: Sequelize.INTEGER,
       licencePlate: {
         type: Sequelize.TEXT,
         references: {
@@ -20,6 +15,11 @@ module.exports = {
           key: 'licencePlate'
         },
       },
+      description: Sequelize.TEXT, 
+      model: Sequelize.TEXT,       
+      manufacture: Sequelize.TEXT, 
+      year: Sequelize.INTEGER,
+      price: Sequelize.INTEGER,
       picture: Sequelize.TEXT       // Assuming picture is a URL or file path
     });
   },
