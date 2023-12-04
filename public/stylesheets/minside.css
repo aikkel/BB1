@@ -1,56 +1,155 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
+body,
+html {
+  margin: 0px;
+  min-height: 200vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  /* font skal ændres, sofia vælger + baggrunds farve? */
+}
 
-  /* test kode for JSON, V1 minus Kameli + Synsbasen - virk */
 
-  .container {
-    text-align: center;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
 
-  h1 {
-    margin-bottom: 20px;
-  }
+.footer{
+  padding-top: 20px;
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  padding-bottom: 20px;
+  background-color: #545faf;
 
-  label {
-    font-weight: bold;
-  }
+  /* color placeholder for sofia + du kan ændre bare alt hvad du vil om det er str, farve, længde etc., dette er bare som et startpunkt */
+}
 
-  input[type="text"] {
-    padding: 8px;
-    margin-bottom: 10px;
-    width: 200px;
-  }
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #545faf;
+  padding: 20px;
+  border-bottom: 1px solid #ccc; 
+}
 
-  button {
-    padding: 8px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.header {
+  display: flex;
+  justify-content: space-between; /* Align children with space between them */
+  align-items: center; /* Vertically align children */
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
 
-  button:hover {
-    background-color: #45a049;
-  }
 
-  #vehicleInfo {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    text-align: left;
-  }
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #54afa5;
+}
+
+.header-text {
+  color: black;
+  font-size: 2.5em;
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
+}
+
+.overskrift {
+  margin-top: 10px;
+  display: inline;
+  color: #54afa5;
+}
+
+h2 {
+  color: red;
+}
+
+.test {
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boks, 
+.boks2 {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 400px;
+}
+
+.header-sogning {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-sogning input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.sogningknap {
+  background-color: #54afa5;
+  color: #545faf;
+  font-size: 2.0em;
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
+  padding-top: 3px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.header-text2 {
+  color: #54afa5;
+  font-size: 2.5em;
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
+}
+
+.header-box,
+.header-box2 {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #54afa5;
+  font-size: 2.5em;
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
+  justify-content: space-between;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  float: right;
+  /* fix float value */
+}
+
+.header-sogning input, .header-sogning button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
