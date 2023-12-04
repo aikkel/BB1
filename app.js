@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+module.exports = app;
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -38,7 +38,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
 
 
 
@@ -56,3 +55,6 @@ app.get('/', function(req, res) {
 app.listen(8080, () => {
   console.log('Server is running on port 8080');
 });
+
+
+
