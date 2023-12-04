@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+module.exports = app;
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -38,4 +38,23 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+
+
+
+// working?
+// Serving static files from the 'public' directory
+app.use(express.static(__dirname + '/public'));
+
+// ...other routes and configurations
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+
+});
+
+app.listen(8080, () => {
+  console.log('Server is running on port 8080');
+});
+
+
+

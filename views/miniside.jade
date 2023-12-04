@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Synsbasen API Example
+    script(src="/public/javascripts/minside.js", type="text/javascript")
+    link(rel="stylesheet", href="/public/stylesheets/minside.css")
+    script(src="javascripts/minside.js", type="text/javascript")
+    link(rel="stylesheet", href="stylesheets/minside.css")
+  body
+    // test kode for JSON, V1 minus Kameli + Synsbasen - virk
+    h1 Get Vehicle Information
+    label(for="licensePlate") Enter License Plate:
+    input(type="text", id="licensePlate", placeholder="Enter license plate number")
+    button(onclick="fetchData()") Search
+    div#vehicleInfo
