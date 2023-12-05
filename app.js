@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var minsideRouter = require('./routes/minside');
 var loginRouter = require('./routes/login');
 
@@ -22,7 +21,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/minside', minsideRouter);
 app.use('/login', loginRouter);
 
@@ -58,5 +56,5 @@ app.get('/', function(req, res) {
 });
 
 app.listen(8080, () => {
-  console.log('Server is running on port 8080');
+  console.log('Server is running on port 8080 and port 3000');
 });
