@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const db = require('Database/BBDB.db');
 
 /* GET users listing. */
 router.get('/minside', function(req, res, next) {
@@ -7,7 +8,7 @@ router.get('/minside', function(req, res, next) {
 });
 
 router.post('/minside', function(req, res, next){
-  if ((req.body.username == 'Jens') && (req.body.password == 'Gut')) {
+  if ((req.body.username == 'email') && (req.body.password == 'password')) {
     res.send('logget ind ' + req.body.username + " " + req.body.password);
   }
   else {
