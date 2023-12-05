@@ -5,7 +5,7 @@ const User = require('../models/User.js');
 const bcrypt = require('bcrypt');
 
 /* GET users listing. */
-router.get('/login', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('login', { title: 'bloatware'});
 });
 

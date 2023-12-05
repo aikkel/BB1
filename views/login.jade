@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Login Page
+  body
+    h1 Login Page
+    form(id="loginForm")
+      label(for="email") Email:
+      input(type="text", id="email", name="email")
+      br
+      label(for="password") Password:
+      input(type="password", id="password", name="password")
+      br
+      input(type="submit", value="Login")
+    br
+    p Don't have an account? 
+    a(href="/signup") Sign up here.
+
+    script.
+      document.getElementById('loginForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const username = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const response = await fetch('/createUser', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+          // User was created successfully
+          console.log(data);
+        } else {
+          // There was an error creating the user
+          console.error(data.error);
+        }
+      });
