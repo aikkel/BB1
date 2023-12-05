@@ -3,7 +3,7 @@ var router = express.Router();
 const db = require('Database/BBDB.db');
 
 /* GET users listing. */
-router.get('/minside', function(req, res, next) {
+router.get('/users', function(req, res, next) {
   res.send('respond with a resource');
 });
 
