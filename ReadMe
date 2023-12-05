@@ -39,3 +39,6 @@ to seed db.
 npx sequelize-cli db:seed:all
 and npx sequelize-cli db:seed:undo to undo the seedings.
 
+to migrate:
+npx sequelize-cli db:migrate
+

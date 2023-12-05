@@ -2,6 +2,15 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('UserInfo', {
+      ID: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      }
+    });
+
     await queryInterface.addColumn('UserInfo', 'userRefID', {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -14,5 +23,6 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn('UserInfo', 'userRefID');
+    await queryInterface.dropTable('UserInfo');
   }
 };
