@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const db = require('./db');
+const db = require('../Database/db');
 const app = express();
 
 router.get('/', (req, res) => {
@@ -43,6 +43,5 @@ app.post('/createUser', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server started'));
 
 module.exports = router;
