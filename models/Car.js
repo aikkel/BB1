@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         year: DataTypes.INTEGER,
         SIInfo: DataTypes.TEXT
     }, {
+        tableName: 'Car', // specifying the table name since it's singular
         timestamps: false
     });
 };
