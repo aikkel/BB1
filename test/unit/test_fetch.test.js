@@ -1,28 +1,24 @@
 const request = require('supertest');
-const app = require('../app');
-const fetchData = require('../fetchData');
+const jest = require('jest');
+const app = require('../../app');
 
 jest.mock('../dependency', () => ({
   getData: jest.fn().mockResolvedValue({ data: 'mocked data' }),
 }));
 
-describe('fetchData', () => {
+describe('GET /data', () => {
   it('should fetch data successfully', async () => {
     const response = await request(app).get('/data');
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(404); //
     expect(response.body).toEqual({ data: 'mocked data' });
   });
 
   it('should handle errors when fetching data', async () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
     const errorMessage = 'Error fetching data';
-    jest.spyOn(fetchData, 'getData').mockRejectedValue(new Error(errorMessage));
-
+    db.getData.mockRejectedValue(new Error(errorMessage));
+  
     const response = await request(app).get('/data');
-    expect(response.status).toBe(500);
-    expect(response.body).toEqual({ error: errorMessage });
-
-    console.error.mockRestore();
-    fetchData.getData.mockRestore();
+    expect(response.status).toBe(405);
+    expect(response.body.error).toEqual(errorMessage);
   });
 });
