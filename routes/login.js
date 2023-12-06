@@ -9,9 +9,29 @@ router.get('/', function(req, res, next) {
   res.render('login', { title: 'bloatware'});
 });
 
+// router.post('/login', async (req, res) => {
+//   const { email, password } = req.body;
+//   try {
+//     const user = await db.User.findOne({ where: { email } });
+//     if (!user) {
+//       return res.status(400).json({ message: 'Invalid email or password' });
+//     }
+//     const isPasswordValid = await bcrypt.compare(password, user.password);
+//     if (!isPasswordValid) {
+//       return res.status(400).json({ message: 'Invalid email or password' });
+//     }
+//     res.redirect(`/minside`); //res.redirect(`/minside/${user.id}`);
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//     res.redirect('/');
+//   }
+// });
+
 router.post('/login', async function(req, res, next){
     const { email, password } = req.body;
-  
+
+req.body.email
+
     try {
       // Find the user by email
       const user = await User.findOne({ where: { email: email } });
@@ -33,6 +53,7 @@ router.post('/login', async function(req, res, next){
       res.redirect(`/minside/${user.id}`);
     } catch (error) {
       console.error(error);
+      res.redirect('/login');
     }
   });
 

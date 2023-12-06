@@ -2,11 +2,14 @@ doctype html
 html
   head
     title Login Side
-    script(src="/public/javascripts/login.js", type="text/javascript")
+    script(src="/public/javascripts/loginjade.js", type="text/javascript")
     link(rel="stylesheet", href="/public/stylesheets/login.css")
-    script(src="javascripts/login.js", type="text/javascript")
+    script(src="javascripts/loginjade.js", type="text/javascript")
     link(rel="stylesheet", href="stylesheets/login.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+    script(src='routes/login.js')
+    script(src='/login.js')
+
   body
     header.container
       div.header
@@ -22,62 +25,21 @@ html
         
           <!-- udkast 1, ændring forekommes -->
   
-    form(id="loginForm" class="loginform")
+    form(method='POST', action='/login', id="loginForm", class="loginform")
       label(for="email") Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      input(type="text", id="email", name="email")
+      input(type="text", id="email", name="email" required)
       br
       label(for="password") Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      input(type="password", id="password", name="password")
+      input(type="password", id="password", name="password" required)
       div
         span(style="display: inline-block; vertical-align: middle; margin-top: 10px") Vis Adgangskode
         input(type="checkbox", id="show-password", onclick="myFunction()", style="display: inline-block; vertical-align: middle; margin-top: 10px")
 
       br
-      input(type="submit", value="Login")
+      button(type="submit", id ="login") Login
       br
       p Har du ikke en konto? 
       a(href="/register") Tilmeld dig.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- login.js??? -->
-    script.
-      document.getElementById('loginForm').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const username = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const response = await fetch('/createUser', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, password }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-          // User was created successfully
-          console.log(data);
-        } else {
-          // There was an error creating the user
-          console.error(data.error);
-        }
-      });
-
 
 
 footer.footer

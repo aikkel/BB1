@@ -1,13 +1,15 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./Database/BBDB.db');
-
+const path = require('path');
 const login = require('./login.js');
 const Sequelize = require('sequelize');
 const config = require('../config/config.json').development;
 const bcrypt = require('bcrypt');
 const UserModel = require('../models/User');
 
-const sequelize = new Sequelize(config);
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: path.join(__dirname, '../Database/BBDB.db') //path.join combines relative path segments into an absolute path
+});
+
 const User = UserModel(sequelize, Sequelize);
 
 async function createUser(email, password) {
@@ -26,5 +28,4 @@ sequelize.sync();
     Sequelize,
     createUser,
     User,
-    db,
   };

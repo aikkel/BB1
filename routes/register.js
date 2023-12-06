@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 // Register route
 router.post('/', async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     // Generate salt
     const salt = await bcrypt.genSalt(12);
@@ -20,8 +20,9 @@ router.post('/', async (req, res) => {
     // Hash the password with the salt
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Save the username and hashed password to the database
-    // Your code here...
+    // Save the email and hashed password to the database
+    await db.User.create({ email, password: hashedPassword });
+   
 
     res.status(200).json({ message: 'User registered successfully' });
   } catch (error) {
