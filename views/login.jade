@@ -1,21 +1,63 @@
 doctype html
 html
   head
-    title Login Page
+    title Login Side
+    script(src="/public/javascripts/login.js", type="text/javascript")
+    link(rel="stylesheet", href="/public/stylesheets/login.css")
+    script(src="javascripts/login.js", type="text/javascript")
+    link(rel="stylesheet", href="stylesheets/login.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
   body
-    h1 Login Page
-    form(id="loginForm")
-      label(for="email") Email:
+    header.container
+      div.header
+        div.header-content
+          a(href="/")
+            img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
+          div.header-text Basensbiler
+        div.header-sogning
+          h1 Login Side
+        div.content-header
+          a(href="", class="header-box") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          a(href="", class="header-box2") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+          <!-- udkast 1, ændring forekommes -->
+  
+    form(id="loginForm" class="loginform")
+      label(for="email") Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       input(type="text", id="email", name="email")
       br
-      label(for="password") Password:
+      label(for="password") Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       input(type="password", id="password", name="password")
+      div
+        span(style="display: inline-block; vertical-align: middle; margin-top: 10px") Vis Adgangskode
+        input(type="checkbox", id="show-password", onclick="myFunction()", style="display: inline-block; vertical-align: middle; margin-top: 10px")
+
       br
       input(type="submit", value="Login")
-    br
-    p Don't have an account? 
-    a(href="/register") Sign up here.
+      br
+      p Har du ikke en konto? 
+      a(href="/register") Tilmeld dig.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- login.js??? -->
     script.
       document.getElementById('loginForm').addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -35,3 +77,33 @@ html
           console.error(data.error);
         }
       });
+
+
+
+footer.footer
+      hr(size="2", width="90%", color="black")
+      div
+        h1
+          u Basensbiler
+        p.ptext
+          b Schibsted Denmark ApS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Wildersgade 8
+        p.ptext 1408 København K
+        p.ptext Danmark
+      div
+        h1
+          u Service
+        p.ptext
+          b E-mail: keglemand@basensbiler.dk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Tel.: +45 5672 0707
+        p.ptext Mob.: +45 2096 6949
+        p.ptext CVR.no.: 20618175
+      div
+        h1
+          u Ejerforhold
+        p.ptext
+          b Direktør: Kevin Dyhr Mortensen  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Vicedirektør: Jakob Foersom
+        p.ptext Økonomichef: Sercan Oruc
+        p.ptext Marketingschef: Lucas Wolthers Havenkvist
+        p.ptext Teknologichef: Emil Rud Peitersen

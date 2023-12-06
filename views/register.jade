@@ -3,15 +3,62 @@ doctype html
 html
   head
     title New User Registration
+    script(src="/public/javascripts/register.js", type="text/javascript")
+    link(rel="stylesheet", href="/public/stylesheets/register.css")
+    script(src="javascripts/register.js", type="text/javascript")
+    link(rel="stylesheet", href="stylesheets/register.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
   body
-    h1 New User Registration
-    form(action="/register", method="POST")
+    header.container
+      div.header
+        div.header-content
+          a(href="/")
+            img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
+          div.header-text Basensbiler
+        div.header-sogning
+          h1 Registrer Side
+        div.content-header
+          a(href="", class="header-box") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          a(href="", class="header-box2") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+    form(action="/register", method="POST" class="loginform")
     
-      label(for="email") Email:
+      label(for="email") Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       input(type="email", id="email", name="email")
       br
-      label(for="password") Password:
+      label(for="password") Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       input(type="password", id="password", name="password")
       br
       
-      input(type="submit", value="Register")
+      input(type="submit", value="Opret Konto" id="register")
+
+
+
+
+footer.footer
+      hr(size="2", width="90%", color="black")
+      div
+        h1
+          u Basensbiler
+        p.ptext
+          b Schibsted Denmark ApS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Wildersgade 8
+        p.ptext 1408 København K
+        p.ptext Danmark
+      div
+        h1
+          u Service
+        p.ptext
+          b E-mail: keglemand@basensbiler.dk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Tel.: +45 5672 0707
+        p.ptext Mob.: +45 2096 6949
+        p.ptext CVR.no.: 20618175
+      div
+        h1
+          u Ejerforhold
+        p.ptext
+          b Direktør: Kevin Dyhr Mortensen  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Vicedirektør: Jakob Foersom
+        p.ptext Økonomichef: Sercan Oruc
+        p.ptext Marketingschef: Lucas Wolthers Havenkvist
+        p.ptext Teknologichef: Emil Rud Peitersen
