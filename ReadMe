@@ -42,3 +42,5 @@ and npx sequelize-cli db:seed:undo to undo the seedings.
 to migrate:
 npx sequelize-cli db:migrate
 
+to test with jest:
+npx jest, only test files named .test.js
