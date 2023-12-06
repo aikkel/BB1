@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const db = require('./Database/Database/db');
+const db = require('../Database/db.js');
 const app = express();
 
 router.get('/', (req, res) => {
