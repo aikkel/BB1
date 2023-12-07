@@ -1,7 +1,51 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../Database/db.js');
-const User = require('../models/User.js');
+// const User = require('../models/User.js');
+
+const ApiService = require('../services/apiService.js');
+const advertAPI = new ApiService('https://api.nrpla.de', 'lOWUQnlPUqEdChpAwjOfvs7xyeIVdTWiDWvdsKmR5Orr3dudJ9Nrzj6cOAhYlmjJ');
+
+router.get('/', function(req, res, next) {
+  // Check API connection
+  advertAPI.makeRequest('AB123CD').then(data => {
+    console.log('Connected to API');
+  }).catch(error => {
+    console.error('Failed to connect to API:', error);
+  });
+
+  res.render('minside', { title: 'blobbbs' });
+});
+
+
+
+router.post('/search', function(req, res, next) {
+  let registration = req.body.registration;
+  let vin = req.body.vin;
+
+  // Get vehicle data by registration
+  advertAPI.makeRequest(registration).then(data => {
+    console.log(data);
+  });
+
+  // Get vehicle data by registration with additional data
+  advertAPI.makeRequest(`${registration}?advanced=1`).then(data => {
+    console.log(data);
+  });
+
+  // Get vehicle data by VIN
+  advertAPI.makeRequest(`vin/${vin}`).then(data => {
+    console.log(data);
+  });
+
+  // Get vehicle data by VIN with additional data
+  advertAPI.makeRequest(`vin/${vin}?advanced=1`).then(data => {
+    console.log(data);
+  });
+
+  res.redirect('/');
+});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,44 +56,26 @@ router.get('/', function(req, res, next) {
 // ????? host, user, pass, data
 // ?????
 
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: '../Database/db.js'
+});
 
-$query = "SELECT email, password FROM User WHERE id = 1";
-$result = mysqli_query($connection, $query);
+const User = sequelize.define('User', {
+  email: DataTypes.STRING,
+  password: DataTypes.STRING
+}, {});
 
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
-    $email = $row['email'];
-    $password = $row['password'];
-}
+sequelize.sync();
 
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to MySQL database');
-  
-  // Query to fetch email and password for user ID 1
-  const userId = 1;
-  const query = `SELECT email, password FROM User WHERE id = ${userId}`;
-  
-  // Execute the query
-  connection.query(query, (err, result) => {
-    if (err) throw err;
-    
-    if (result.length > 0) {
-      const user = result[0];
-      const email = user.email;
-      const password = user.password;
-
-      // Display user information
-      console.log(`User ID: ${userId}`);
-      console.log(`Email: ${email}`);
-      console.log(`Password: ${password}`);
-    } else {
-      console.log('User not found');
-    }
-
-    // Close the connection
-    connection.end();
-  });
+router.get('/', async function(req, res, next) {
+  const user = await User.findOne({ where: { id: 1 } });
+  if (user) {
+    const { email, password } = user;
+    console.log(email, password);
+  }
+  res.render('minside', { title: 'blobbbs' });
 });
 
 module.exports = router;
