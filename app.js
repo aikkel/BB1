@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var minsideRouter = require('./routes/minside');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
+var mineAnnoncerRouter = require('./routes/mineAnnoncer')
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/minside', minsideRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
+app.use('/mineAnnoncer', mineAnnoncerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

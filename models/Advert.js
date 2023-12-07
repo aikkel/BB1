@@ -1,5 +1,7 @@
-module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Advert', {
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+    const Advert = sequelize.define('Advert', {
         advertID: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -19,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
         price: DataTypes.INTEGER,    
         picture: DataTypes.TEXT       // Assuming picture is a URL or file path
     }, {
+        tableName: 'Advert', // specifying the table name since it's singular
         timestamps: false
     });
+
+    return Advert;
 };
