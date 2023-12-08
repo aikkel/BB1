@@ -1,53 +1,28 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../Database/db.js');
-// const User = require('../models/User.js');
-
-const ApiService = require('../services/apiService.js');
-const advertAPI = new ApiService('https://api.nrpla.de', 'xptQbIKH1AyItGP0TCiv8BcIo3rFHiIyA7GI3QdOESidtD0oJeSDPbEyRzqL5mlc');
-//lOWUQnlPUqEdChpAwjOfvs7xyeIVdTWiDWvdsKmR5Orr3dudJ9Nrzj6cOAhYlmjJ
+const FilteredApiService = require('../services/FilteredApiService.js'); // Import the FilteredApiService class
+const ApiService = require('../services/ApiService.js');
+const apiService = new ApiService('https://api.nrpla.de', 'xptQbIKH1AyItGP0TCiv8BcIo3rFHiIyA7GI3QdOESidtD0oJeSDPbEyRzqL5mlc');
+const filteredApiService = new FilteredApiService(apiService); // Create an instance of FilteredApiService
 
 router.post('/', function(req, res, next) {
   let registration = req.body.registration;
-  let brand = req.body.brand;
-  let vin = req.body.vin; // Get the VIN from the request body
 
   if (registration) {
     // Get vehicle data by registration
-    advertAPI.makeRequest(`${registration}`).then(data => {
-      console.log(data);
-      
+    filteredApiService.makeRequest(`${registration}`).then(data => {
+      console.log(data); // This will log the filtered data
+      res.json(data); // This will send the filtered data as a JSON response
     }).catch(error => {
       console.error('Failed to fetch vehicle data:', error);
+      res.status(500).send('Failed to fetch vehicle data');
     });
+  } else {
+    res.status(400).send('Registration is required');
   }
-
-  if (brand) {
-    // Get vehicle data by registration
-    // advertAPI.makeRequest(`${brand}`).then(data => {
-      // Get 12 vehicles by brand
-    advertAPI.makeRequest(`${brand}`).then(data => {
-      console.log(data);
-    }).catch(error => {
-      console.error('Failed to fetch vehicle data:', error);
-    });
-  }
-
-  
-  if (vin) {
-    // Get vehicle data by VIN
-    advertAPI.makeRequest(`${vin}`).then(data => {
-      console.log(data);
-    });
-
-    // Get vehicle data by VIN with additional data
-    advertAPI.makeRequest(`${vin}?advanced=1`).then(data => {
-      console.log(data);
-    });
-  }
-
-  res.redirect('/minside');
 });
+
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize({
   dialect: 'sqlite',
