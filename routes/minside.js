@@ -4,57 +4,36 @@ const db = require('../Database/db.js');
 // const User = require('../models/User.js');
 
 const ApiService = require('../services/apiService.js');
-const advertAPI = new ApiService('https://api.nrpla.de', 'lOWUQnlPUqEdChpAwjOfvs7xyeIVdTWiDWvdsKmR5Orr3dudJ9Nrzj6cOAhYlmjJ');
+const advertAPI = new ApiService('https://api.nrpla.de', 'xptQbIKH1AyItGP0TCiv8BcIo3rFHiIyA7GI3QdOESidtD0oJeSDPbEyRzqL5mlc');
+//lOWUQnlPUqEdChpAwjOfvs7xyeIVdTWiDWvdsKmR5Orr3dudJ9Nrzj6cOAhYlmjJ
 
-router.get('/', function(req, res, next) {
-  // Check API connection
-  advertAPI.makeRequest('AB123CD').then(data => {
-    console.log('Connected to API');
-  }).catch(error => {
-    console.error('Failed to connect to API:', error);
-  });
-
-  res.render('minside', { title: 'blobbbs' });
-});
-
-
-
-router.post('/search', function(req, res, next) {
+router.post('/', function(req, res, next) {
   let registration = req.body.registration;
-  let vin = req.body.vin;
+  let vin = req.body.vin; // Get the VIN from the request body
 
-  // Get vehicle data by registration
-  advertAPI.makeRequest(registration).then(data => {
-    console.log(data);
-  });
+  if (registration) {
+    // Get vehicle data by registration
+    advertAPI.makeRequest(`${registration}`).then(data => {
+      console.log(data);
+    }).catch(error => {
+      console.error('Failed to fetch vehicle data:', error);
+    });
+  }
+  
+  if (vin) {
+    // Get vehicle data by VIN
+    advertAPI.makeRequest(`${vin}`).then(data => {
+      console.log(data);
+    });
 
-  // Get vehicle data by registration with additional data
-  advertAPI.makeRequest(`${registration}?advanced=1`).then(data => {
-    console.log(data);
-  });
+    // Get vehicle data by VIN with additional data
+    advertAPI.makeRequest(`${vin}?advanced=1`).then(data => {
+      console.log(data);
+    });
+  }
 
-  // Get vehicle data by VIN
-  advertAPI.makeRequest(`vin/${vin}`).then(data => {
-    console.log(data);
-  });
-
-  // Get vehicle data by VIN with additional data
-  advertAPI.makeRequest(`vin/${vin}?advanced=1`).then(data => {
-    console.log(data);
-  });
-
-  res.redirect('/');
+  res.redirect('/minside');
 });
-
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('minside', { title: 'blobbbs' });
-});
-
-
-// ????? host, user, pass, data
-// ?????
 
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize({

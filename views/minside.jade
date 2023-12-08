@@ -3,7 +3,7 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title index
+    title Minside
     script(src="/public/javascripts/minside.js", type="text/javascript")
     link(rel="stylesheet", href="/public/stylesheets/minside.css")
     script(src="javascripts/minside.js", type="text/javascript")
@@ -17,9 +17,10 @@ html(lang="en")
             img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
           div.header-text Basensbiler
         div.header-sogning
-          input(type="text", placeholder="Indtast nummerplade.....")
-          button.sogningknap
-            i.fas.fa-search
+          form(action="/minside" method="post")
+            label(for="registration") Registration:
+            input(type="text" id="registration" name="registration")
+            input(type="submit" value="Submit")
         div.content-header
           a(href="/minside", class="header-box") Min side
           a(href="/login", class="header-box2") Login
