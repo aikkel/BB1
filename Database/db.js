@@ -4,6 +4,8 @@ const Sequelize = require('sequelize');
 const config = require('../config/config.json').development;
 const bcrypt = require('bcrypt');
 const UserModel = require('../models/User');
+const AdvertModel = require('../models/Advert'); // Path to the Advert model
+
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -21,6 +23,12 @@ async function createUser(email, password) {
     });
     return newUser;
 }
+const Advert = AdvertModel(sequelize, Sequelize);
+
+async function getAdverts() {
+  const adverts = await Advert.findAll();
+  return adverts;
+}
 
 sequelize.sync();
 
@@ -28,4 +36,6 @@ sequelize.sync();
     Sequelize,
     createUser,
     User,
-  };
+    getAdverts,
+    Advert,
+};

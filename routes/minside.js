@@ -34,7 +34,6 @@ router.post('/', function(req, res, next) {
 
   res.redirect('/minside');
 });
-
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize({
   dialect: 'sqlite',
