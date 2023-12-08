@@ -1,11 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('Car', {
-        carID: {
-            type: DataTypes.INTEGER,
+        licencePlate: {
+            type: DataTypes.TEXT,
             primaryKey: true,
-            autoIncrement: true
         },
-        licencePlate: DataTypes.TEXT,
         model: DataTypes.TEXT,
         manufacture: DataTypes.TEXT,
         year: DataTypes.INTEGER,

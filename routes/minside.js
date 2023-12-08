@@ -9,16 +9,30 @@ const advertAPI = new ApiService('https://api.nrpla.de', 'xptQbIKH1AyItGP0TCiv8B
 
 router.post('/', function(req, res, next) {
   let registration = req.body.registration;
+  let brand = req.body.brand;
   let vin = req.body.vin; // Get the VIN from the request body
 
   if (registration) {
     // Get vehicle data by registration
     advertAPI.makeRequest(`${registration}`).then(data => {
       console.log(data);
+      
     }).catch(error => {
       console.error('Failed to fetch vehicle data:', error);
     });
   }
+
+  if (brand) {
+    // Get vehicle data by registration
+    // advertAPI.makeRequest(`${brand}`).then(data => {
+      // Get 12 vehicles by brand
+    advertAPI.makeRequest(`${brand}`).then(data => {
+      console.log(data);
+    }).catch(error => {
+      console.error('Failed to fetch vehicle data:', error);
+    });
+  }
+
   
   if (vin) {
     // Get vehicle data by VIN
