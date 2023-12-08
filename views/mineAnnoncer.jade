@@ -12,11 +12,12 @@ html
       table
         each ad in advert
           tr
-            td= 'advertID: ' + ad.advertID
-            td= 'licencePlate: ' + ad.licencePlate
-            td= 'description: ' + ad.description
-            td= 'manufactor: ' + ad.manufactor
-            td= 'year: ' + ad.year
-            td= 'price: ' + ad.price
+            td= 'Annonce nummer: ' + ad.advertID
+            td= 'Nummer plade: ' + ad.licencePlate
+            td= 'Beskrivelse: ' + ad.description
+            td= 'Mærke: ' + ad.manufacture
+            td= 'Model: ' + ad.model
+            td= 'Årgang: ' + ad.year
+            td= 'Pris: ' + ad.price
     else
       p= 'ingen annoncer fundet'
