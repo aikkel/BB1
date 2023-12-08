@@ -2,6 +2,7 @@ doctype html
 html
   head
     title mineAnnoncer
+    link(rel="stylesheet", href="/stylesheets/style.css", type="text/css")
     script(src="javascripts/mineAnnoncer.js", type="text/javascript")
     script(src='routes/mineAnnoncer.js')
     script(src='/mineAnnoncer.js')
@@ -9,12 +10,14 @@ html
     h1 TEST!
     if advert.length > 0
       h1 Search Results
-      each ad in advert
-        p= 'advertID: ' + ad.advertID
-        p= 'licencePlate: ' + ad.licencePlate
-        p= 'description: ' + ad.description
-        p= 'manufactor: ' + ad.manufactor
-        p= 'year: ' + ad.year
-        p= 'price: ' + ad.price
+      table
+        each ad in advert
+          tr
+            td= 'advertID: ' + ad.advertID
+            td= 'licencePlate: ' + ad.licencePlate
+            td= 'description: ' + ad.description
+            td= 'manufactor: ' + ad.manufactor
+            td= 'year: ' + ad.year
+            td= 'price: ' + ad.price
     else
       p= 'ingen annoncer fundet'
