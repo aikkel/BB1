@@ -21,11 +21,15 @@ html(lang="en")
           button.sogningknap
             i.fas.fa-search
         div.content-header
+          if user
+            button Show Button
+          else
+            p Du er ikke logget ind
           a(href="/minside", class="header-box") Min side
           a(href="/login", class="header-box2") Login
     div.content
       div.boks Forslag
-        button(onclick="redirectToAdvert('1')") View Advertisement
+        button(onclick="redirectToAdvert('1')") Se mulige forslag kawaii boy uwu
         
       div.boks2 Egne Annoncer
       //- fiks sizing shit

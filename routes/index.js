@@ -12,14 +12,14 @@ router.get('/adverts/:advertID', (req, res) => {
 
   // Replace this with your actual database query to fetch advertisement details
   // Example using Mongoose:
-  // Advertisement.findById(advertID, (err, advert) => {
-  //   if (err || !advert) {
+  Advertisement.findById(advertID, (err, advert) => {
+    if (err || !advert) {
   //     // Handle error or not found scenario
-  //   } else {
+    } else {
   //     // Render a page with the advertisement details
-  //     res.render('advert-details', { advert });
-  //   }
-  // });
+    res.render('advert-details', { advert });
+    }
+    });
 
   // For demonstration purposes, sending a sample response
   res.send(`Displaying advertisement details for ID: ${advertID}`);
