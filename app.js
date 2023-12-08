@@ -11,6 +11,7 @@ var minsideRouter = require('./routes/minside');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var mineAnnoncerRouter = require('./routes/mineAnnoncer')
+var annonceRouter = require('./routes/annonce');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/minside', minsideRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/mineAnnoncer', mineAnnoncerRouter);
+app.use('/annonce', annonceRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
