@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 
     // If user not found, return error
     if (!user) {
-      return res.status(400).json({ message: 'Invalid email or password' });
+      return res.render('login', { error: 'Invalid email or password' });
     }
 
     // Check if the provided password matches the one in the database
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
 
     // If password is not valid, return error
     if (!isPasswordValid) {
-      return res.status(400).json({ message: 'Invalid email or password' });
+      return res.render('login', { error: 'Invalid email or password' });
     }
 
     // If everything is okay, redirect to the user's page
