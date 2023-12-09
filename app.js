@@ -12,6 +12,7 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var mineAnnoncerRouter = require('./routes/mineAnnoncer')
 var annonceRouter = require('./routes/annonce');
+var updateRouter = require('./routes/update');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/mineAnnoncer', mineAnnoncerRouter);
 app.use('/annonce', annonceRouter);
+app.use('/update', updateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,14 +52,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-
-
-// working?
-// Serving static files from the 'public' directory
-app.use(express.static(__dirname + '/public'));
-
-// ...other routes and configurations
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));

@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Update Page
+    link(rel="stylesheet", href="/path/to/your/css")
+    script(src="/path/to/your/javascript")
+
+  body
+    header
+      // Your header content
+
+    main
+      form(method='POST', action='/update')
+        h2 Current Login
+        label(for="currentEmail") Current Email:
+        input(type="email", id="currentEmail", name="currentEmail" required)
+        label(for="currentPassword") Current Password:
+        input(type="password", id="currentPassword", name="currentPassword" required)
+
+        h2 New Login
+        label(for="newEmail") New Email:
+        input(type="email", id="newEmail", name="newEmail" required)
+        label(for="newPassword") New Password:
+        input(type="password", id="newPassword", name="newPassword" required)
+
+        button(type="submit") Update
+
+    footer
+      // Your footer content
