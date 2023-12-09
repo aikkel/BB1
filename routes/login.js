@@ -2,13 +2,15 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const db = require('../Database/db.js');
-const user = require('../models/User.js');
+// const user = require('../models/User.js');
 
 
 /* GET users listing. */
 router.get('/', (req, res) => {
   res.render('login');
 });
+
+
 
 /* Post user input */
 router.post('/', async (req, res) => {
@@ -37,6 +39,9 @@ router.post('/', async (req, res) => {
     }
 
     // If everything is okay, redirect to the user's page
+    req.session.userId = user.id; //saves user.id in session.
+    console.log(req.session.userId); // show the shit in conosle.
+     
     return res.redirect(`/minside`);
   } catch (err) {
     console.error(err);

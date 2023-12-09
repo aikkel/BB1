@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const session = require('express-session');
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -15,6 +16,14 @@ var annonceRouter = require('./routes/annonce');
 var updateRouter = require('./routes/update');
 
 var app = express();
+
+// Konfigurer session middleware
+app.use(session({
+  secret: 'hemmelige nøgle',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
