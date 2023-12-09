@@ -39,8 +39,8 @@ router.post('/', async (req, res) => {
     }
 
     // If everything is okay, redirect to the user's page
-    req.session.userId = user.id; //saves user.id in session.
-    console.log(req.session.userId); // show the shit in conosle.
+    req.session.userID = user.id; //saves user.id in session.
+    console.log(req.session.userID); // show the shit in conosle.
      
     return res.redirect(`/minside`);
   } catch (err) {

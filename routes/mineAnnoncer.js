@@ -2,28 +2,28 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../Database/db.js');
-const model = require('../models/Advert.js');
-
-const bodyParser = require('body-parser');
+// const Advert = require('../models/Advert.js'); // Assuming this is the correct path to your Advert model
+const { Advert } = require('../Database/db.js');
 
 router.get('/', function(req, res, next) {
-  if (!req.session.userID) {
-      return res.redirect('/login'); // Redirect til login, hvis ikke logget ind
+  if (!req.session.userID) { // Make sure this matches how you set it in the session
+      return res.redirect('/login'); // Redirect to login if not logged in
   }
 
-  db.Advert.findAll({
-      where: { userID: req.session.userID } // Filtrer annoncer baseret på brugerens id
+  Advert.findAll({
+      where: { advertID: req.session.userID } // Use the correct column name here
   })
-  .then(advert => {
-      if (advert) {
-          res.render('mineAnnoncer', { advert: advert });
+  .then(adverts => {
+      if (adverts) {
+          res.render('mineAnnoncer', { advert: adverts });
       } else {
-          res.redirect('/')
+          res.redirect('/');
       }
   })
   .catch(err => {
       console.error(err);
-      res.redirect('/')
+      res.redirect('/');
   });
 });
+
 module.exports = router;
