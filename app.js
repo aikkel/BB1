@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const session = require('express-session');
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -12,8 +13,17 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var mineAnnoncerRouter = require('./routes/mineAnnoncer')
 var annonceRouter = require('./routes/annonce');
+var updateRouter = require('./routes/update');
 
 var app = express();
+
+// Konfigurer session middleware
+app.use(session({
+  secret: 'hemmelige nøgle',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +42,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/mineAnnoncer', mineAnnoncerRouter);
 app.use('/annonce', annonceRouter);
+app.use('/update', updateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,14 +61,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-
-
-// working?
-// Serving static files from the 'public' directory
-app.use(express.static(__dirname + '/public'));
-
-// ...other routes and configurations
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));

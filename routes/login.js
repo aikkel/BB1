@@ -2,13 +2,15 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const db = require('../Database/db.js');
-const user = require('../models/User.js');
+// const user = require('../models/User.js');
 
 
 /* GET users listing. */
 router.get('/', (req, res) => {
   res.render('login');
 });
+
+
 
 /* Post user input */
 router.post('/', async (req, res) => {
@@ -25,7 +27,7 @@ router.post('/', async (req, res) => {
 
     // If user not found, return error
     if (!user) {
-      return res.status(400).json({ message: 'Invalid email or password' });
+      return res.render('login', { error: 'Invalid email or password' });
     }
 
     // Check if the provided password matches the one in the database
@@ -33,10 +35,13 @@ router.post('/', async (req, res) => {
 
     // If password is not valid, return error
     if (!isPasswordValid) {
-      return res.status(400).json({ message: 'Invalid email or password' });
+      return res.render('login', { error: 'Invalid email or password' });
     }
 
     // If everything is okay, redirect to the user's page
+    req.session.userId = user.id; //saves user.id in session.
+    console.log(req.session.userId); // show the shit in conosle.
+     
     return res.redirect(`/minside`);
   } catch (err) {
     console.error(err);

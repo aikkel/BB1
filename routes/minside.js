@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
     }).catch(error => {
       console.error('Failed to fetch vehicle data:', error);
       res.status(500).send('Failed to fetch vehicle data');
-    });
+    }); 
   } else {
     res.status(400).send('Registration is required');
   }
@@ -41,7 +41,9 @@ router.get('/', async function(req, res, next) {
   if (user) {
     const { email, password } = user;
     console.log(email, password);
+    
   }
+  console.log(req.session.userID);
   res.render('minside', { title: 'blobbbs' });
 });
 
