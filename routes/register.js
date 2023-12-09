@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     res.status(200).json({ message: 'User registered successfully' });
   } catch (error) {
     if (error.name === 'SequelizeUniqueConstraintError') {
-      res.render('register', { error: 'Email already exists' });
+      res.render('register', { error: 'Email er allerede taget' });
     } else {
       console.error(error);
       res.status(500).json({ message: 'Internal server error' });
