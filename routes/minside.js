@@ -45,12 +45,11 @@ const User = sequelize.define('User', {
 
 sequelize.sync();
 
-router.get('/',isAuthenticated, async function(req, res, next) {
-  const user = await User.findOne({ where: { id: 1 } });
+router.get('/', isAuthenticated, async function(req, res, next) {
+  const user = await User.findOne({ where: { id: req.session.userID } });
   if (user) {
     const { email, password } = user;
     console.log(email, password);
-    
   }
   console.log(req.session.userID);
   res.render('minside', { title: 'blobbbs' });
