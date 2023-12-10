@@ -6,7 +6,16 @@ const ApiService = require('../services/ApiService.js');
 const apiService = new ApiService('https://api.nrpla.de', 'xptQbIKH1AyItGP0TCiv8BcIo3rFHiIyA7GI3QdOESidtD0oJeSDPbEyRzqL5mlc');
 const filteredApiService = new FilteredApiService(apiService); // Create an instance of FilteredApiService
 
-router.post('/', function(req, res, next) {
+// Middleware to check if user is logged in
+function isAuthenticated(req, res, next) {
+  if (req.session && req.session.userID) {
+    return next();
+  } else {
+    res.redirect('/login');
+  }
+}
+
+router.post('/',isAuthenticated, function(req, res, next) {
   let registration = req.body.registration;
 
   if (registration) {
@@ -36,7 +45,7 @@ const User = sequelize.define('User', {
 
 sequelize.sync();
 
-router.get('/', async function(req, res, next) {
+router.get('/',isAuthenticated, async function(req, res, next) {
   const user = await User.findOne({ where: { id: 1 } });
   if (user) {
     const { email, password } = user;
