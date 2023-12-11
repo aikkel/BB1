@@ -1,0 +1,31 @@
+block content
+    link(rel="stylesheet", href="/stylesheets/nyeAnnonce.css")
+    h1 New Advertisements
+
+    div.form-container
+        div.small-fields
+            div.column
+                // API data field
+                label(for="apiData") API Data:
+                input#apiData(type="text")
+
+                // Database data field
+                label(for="dbData") Database Data:
+                input#dbData(type="text")
+
+            div.column
+                // Price field
+                label(for="price") Price:
+                input#price(type="text")
+
+                // License plate field
+                label(for="licensePlate") License Plate:
+                input#licensePlate(type="text")
+
+            // Submit button
+            button(type="submit") Submit
+
+        div.big-field
+            // Description field
+            label(for="description") Description:
+            textarea#description(type="text", rows="30", cols="30")
