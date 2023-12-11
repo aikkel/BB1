@@ -1,7 +1,19 @@
+function logToConsole() {
+  alert("Du er nu logget ud");
+}
+
+
+
+
+
+
+
 async function fetchData() {
     const apiKey = 'lOWUQnlPUqEdChpAwjOfvs7xyeIVdTWiDWvdsKmR5Orr3dudJ9Nrzj6cOAhYlmjJ';
     const licensePlate = document.getElementById('licensePlate').value.trim();
     const apiUrl = `https://api.synsbasen.dk/v1/vehicles/registration/${licensePlate}`;
+
+  
 
     // test kode for JSON, V1 minus Kameli + Synsbasen - virk
 

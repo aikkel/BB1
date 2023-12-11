@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     // Save the email and hashed password to the database
     await db.User.create({ email, password: hashedPassword });
    
-
+    // ???? hvorfor json redirect uden en vej tilbage?, hvis "User = tilbage vej = changes gone?"
     res.status(200).json({ message: 'User registered successfully' });
   } catch (error) {
     if (error.name === 'SequelizeUniqueConstraintError') {

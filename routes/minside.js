@@ -47,4 +47,5 @@ router.get('/', async function(req, res, next) {
   res.render('minside', { title: 'blobbbs' });
 });
 
+
 module.exports = router;
