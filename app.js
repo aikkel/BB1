@@ -14,6 +14,7 @@ var registerRouter = require('./routes/register');
 var mineAnnoncerRouter = require('./routes/mineAnnoncer')
 var annonceRouter = require('./routes/annonce');
 var updateRouter = require('./routes/update');
+var nyeAnnoncerRouter = require('./routes/nyeAnnoncer');
 
 var app = express();
 
@@ -43,7 +44,7 @@ app.use('/register', registerRouter);
 app.use('/mineAnnoncer', mineAnnoncerRouter);
 app.use('/annonce', annonceRouter);
 app.use('/update', updateRouter);
-
+app.use('/nyeAnnoncer', nyeAnnoncerRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -66,7 +67,6 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 
 });
-
 
 app.listen(8080, () => {
   console.log('Server is running on port 8080 and port 3000');
