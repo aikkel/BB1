@@ -1,4 +1,25 @@
-block content
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title index
+    script(src="/javascripts/index.js", type="text/javascript")
+    link(rel="stylesheet", href="/stylesheets/nyeAnnonce.css")
+    link(rel="stylesheet", href="stylesheets/style.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+  body
+    header.container
+      div.header
+        div.header-content
+          a(href="/")
+            img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
+          div.header-text Basensbiler
+        div.content-header
+          a(href="/minside", class="header-box") Min side
+          a(href="/login", class="header-box2") Login
+    div.content
+      block content
     link(rel="stylesheet", href="/stylesheets/nyeAnnonce.css")
     h1 New Advertisements
 
@@ -22,10 +43,38 @@ block content
                 label(for="licensePlate") License Plate:
                 input#licensePlate(type="text")
 
-            // Submit button
-            button(type="submit") Submit
-
         div.big-field
-            // Description field
-            label(for="description") Description:
-            textarea#description(type="text", rows="30", cols="30")
+                    // Description field
+                    label(for="description") Description:
+                    textarea#description(type="text", rows="30", cols="30")
+
+        // Submit button
+        button(type="submit") Submit
+
+    footer.footer
+      hr(size="2", width="90%", color="black")
+      div
+        h1
+          u Basensbiler
+        p.ptext
+          b Schibsted Denmark ApS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Wildersgade 8
+        p.ptext 1408 København K
+        p.ptext Danmark
+      div
+        h1
+          u Service
+        p.ptext
+          b E-mail: keglemand@basensbiler.dk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Tel.: +45 5672 0707
+        p.ptext Mob.: +45 2096 6949
+        p.ptext CVR.no.: 20618175
+      div
+        h1
+          u Ejerforhold
+        p.ptext
+          b Direktør: Kevin Dyhr Mortensen  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Vicedirektør: Jakob Foersom
+        p.ptext Økonomichef: Sercan Oruc
+        p.ptext Marketingschef: Lucas Wolthers Havenkvist
+        p.ptext Teknologichef: Emil Rud Peitersen
