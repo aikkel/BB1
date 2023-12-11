@@ -173,6 +173,7 @@ h2 {
   justify-content: space-between;
   background-color: #545faf;
   text-decoration: underline;
+  cursor:pointer;
 }
 
 .content-header {
