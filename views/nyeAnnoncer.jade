@@ -23,34 +23,34 @@ html(lang="en")
     link(rel="stylesheet", href="/stylesheets/nyeAnnonce.css")
     h1 New Advertisements
 
-    div.form-container
-        div.small-fields
-            div.column
-                // API data field
-                label(for="apiData") API Data:
-                input#apiData(type="text")
+   div.form-container
+    div.small-fields
+        div.column
+            // API data field
+            label(for="apiData") API Data:
+            input#apiData(type="text")
 
-                // Database data field
-                label(for="dbData") Database Data:
-                input#dbData(type="text")
+            div.big-field
+                // Description field
+                label(for="description") Description:
+                textarea#description(type="text", rows="30", cols="30")
 
-            div.column
-                // Price field
-                label(for="price") Price:
-                input#price(type="text")
+        div.column
+            // Database data field
+            label(for="dbData") Database Data:
+            input#dbData(type="text")
 
-                // License plate field
-                label(for="licensePlate") License Plate:
-                input#licensePlate(type="text")
+            // Price field
+            label(for="price") Price:
+            input#price(type="text")
 
-        div.big-field
-                    // Description field
-                    label(for="description") Description:
-                    textarea#description(type="text", rows="30", cols="30")
+            // License plate field
+            label(for="licensePlate") License Plate:
+            input#licensePlate(type="text")
 
-        // Submit button
-        button(type="submit") Submit
-
+    // Submit button
+    button.button-style(type="submit") Submit
+    
     footer.footer
       hr(size="2", width="90%", color="black")
       div
