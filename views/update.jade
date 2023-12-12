@@ -4,11 +4,11 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title index
-    script(src="/public/javascripts/index.js", type="text/javascript")
-    link(rel="stylesheet", href="/public/stylesheets/style.css")
-    link(rel="stylesheet", href="/public/stylesheets/nyeAnnonce.css")
-    script(src="javascripts/index.js", type="text/javascript")
-    link(rel="stylesheet", href="stylesheets/style.css")
+    script(src="/public/javascripts/update.js", type="text/javascript")
+    link(rel="stylesheet", href="/public/stylesheets/update.css")
+    link(rel="stylesheet", href="/public/stylesheets/update.css")
+    script(src="javascripts/update.js", type="text/javascript")
+    link(rel="stylesheet", href="stylesheets/update.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
   body
     header.container
@@ -19,44 +19,53 @@ html(lang="en")
           div.header-text Basensbiler
         div.content-header
           a(href="/minside", class="header-box") Min side
-          a(href="/login", class="header-box2") Login
-          //- Reminder til minside "LO" patch for Justin
+          a(href="/")
+            button(onclick="logToConsole()" class="header-box3") Log ud
     doctype html
 html
   head
     title Opdater brugerinfo
-    link(rel="stylesheet", href="/path/to/your/css")
-    script(src="/path/to/your/javascript")
+    
 
   body
     header
       // Your header content
 
     main
-      form(method='POST', action='/update')
-        h2 Nuværende oplysninger
-        label(for="currentEmail") Nuværende Email:
-        input(type="email", id="currentEmail", name="currentEmail" required)
-        label(for="currentPassword") Nuværende Password:
-        input(type="password", id="currentPassword", name="currentPassword" required)
-        label(for="currentEmail") Nuværende By:
-        input(type="city", id=" currentCity", name="currentCity")
-        label(for="currentEmail") Nuværende Telefonnummer:
-        input(type="phone", id="currentPhone", name="currentPhone" maxlenght="8")
-        
-        h2 Nye Oplysninger
-        label(for="newEmail") Ny e-mail:
-        input(type="email", id="newEmail", name="newEmail")
-        label(for="newPassword") Nyt password:
-        input(type="password", id="newPassword", name="newPassword")
-        label(for="newCity") Ny by:
-        input(type="city", id="newCity", name="newCity")
-        label(for="newPhone") Nyt telefonummer:
-        input(type="phone", id="newPhone", name="newPhone" maxlenght="8")
-        
+      div 
+        form(method='POST', action='/update')
+          div(class="boob1")
+            h2 Nuværende oplysninger
+            label(for="currentEmail") Nuværende E-mail:
+            input(type="email", id="currentEmail", name="currentEmail" required)
+            label(for="currentPassword") Nuværende Adgangskode:
+            input(type="password", id="currentPassword", name="currentPassword" required)
+            label(for="currentEmail") Nuværende By:
+            input(type="city", id=" currentCity", name="currentCity")
+            label(for="currentEmail") Nuværende Telefonnummer:
+            input(type="phone", id="currentPhone", name="currentPhone", maxlenght="8", minlength="8")
+          div(class="boob2")
+            h2 Nye Oplysninger
+            label(for="newEmail") Ny E-mail:
+            input(type="email", id="newEmail", name="newEmail")
+            label(for="newPassword") Ny Adgangskode:
+            input(type="password", id="newPassword", name="newPassword")
+            label(for="newCity") Ny By:
+            input(type="city", id="newCity", name="newCity")
+            label(for="newPhone") Nyt Telefonnummer:
+            input(type="phone", id="newPhone", name="newPhone", maxlenght="8", minlength="8")
+          
+          div(class="boob3")
+            input(type="submit" value="Opdater Oplysninger" id="opdaterinfo" class="opdaterinfo" onclick="sikkerhed()")
 
-        input(type="submit" value="Opdater Info" id="opdaterinfo")
-        
+
+
+          //- baggrund fiks
+          //- log ud size fiks
+          //- JS confirmation fiks
+          //- Reminders
+
+
     footer.footer
       hr(size="2", width="90%", color="black")
       div
