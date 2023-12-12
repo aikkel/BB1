@@ -23,15 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'User', // specifying the table name since it's singular
         timestamps: false,
-        hooks: {
-            beforeUpdate: async (user) => {
-                if (user.changed('password')) {
-                    const salt = await bcrypt.genSalt();
-                    user.password = await bcrypt.hash(user.password, salt);
-                }
-            }
-        }
-    });
-
+        // hooks: {
+        //     beforeCreate: async (user) => {
+        //       const salt = await bcrypt.genSalt();
+        //       user.password = await bcrypt.hash(user.password, salt);
+        //     }
+        //   }
+        });
+      
     return User;
 };
+  

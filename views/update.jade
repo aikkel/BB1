@@ -20,6 +20,7 @@ html(lang="en")
         div.content-header
           a(href="/minside", class="header-box") Min side
           a(href="/login", class="header-box2") Login
+          //- Reminder til minside "LO" patch for Justin
     doctype html
 html
   head
@@ -33,28 +34,28 @@ html
 
     main
       form(method='POST', action='/update')
-        h2 Nuværende info
-        label(for="currentEmail") Current Email:
+        h2 Nuværende oplysninger
+        label(for="currentEmail") Nuværende Email:
         input(type="email", id="currentEmail", name="currentEmail" required)
-        label(for="currentPassword") Current Password:
+        label(for="currentPassword") Nuværende Password:
         input(type="password", id="currentPassword", name="currentPassword" required)
-        label(for="currentEmail") Nuværende e-mail:
-        input(type="phone", id="currentPhone", name="currentPhone")
-        label(for="currentEmail") Nuværende by:
+        label(for="currentEmail") Nuværende By:
         input(type="city", id=" currentCity", name="currentCity")
+        label(for="currentEmail") Nuværende Telefonnummer:
+        input(type="phone", id="currentPhone", name="currentPhone" maxlenght="8")
         
-        h2 Ny info
+        h2 Nye Oplysninger
         label(for="newEmail") Ny e-mail:
         input(type="email", id="newEmail", name="newEmail")
         label(for="newPassword") Nyt password:
         input(type="password", id="newPassword", name="newPassword")
-        label(for="newPhone") Nyt telefonummer:
-        input(type="phone", id="newPhone", name="newPhone")
         label(for="newCity") Ny by:
-        input(type="newCity", id="newCity", name="newCity")
+        input(type="city", id="newCity", name="newCity")
+        label(for="newPhone") Nyt telefonummer:
+        input(type="phone", id="newPhone", name="newPhone" maxlenght="8")
         
 
-        button(type="submit") Opdater Info
+        input(type="submit" value="Opdater Info" id="opdaterinfo")
         
     footer.footer
       hr(size="2", width="90%", color="black")
