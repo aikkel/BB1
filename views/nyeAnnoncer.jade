@@ -18,38 +18,48 @@ html(lang="en")
         div.content-header
           a(href="/minside", class="header-box") Min side
           a(href="/login", class="header-box2") Login
+
     div.content
-      block content
-    link(rel="stylesheet", href="/stylesheets/nyeAnnonce.css")
-    h1 New Advertisements
+      div.left-side
+        h2 Kontakt Information
+        p #{brugerInfo.email}
+        p #{brugerInfo.city}
+        p #{brugerInfo.phone}
+        // Tilføj yderligere brugerinfo her
 
-   div.form-container
-    div.small-fields
-        div.column
-            // API data field
-            label(for="apiData") API Data:
-            input#apiData(type="text")
+      div.right-side
+        div.box
+          label Længde
+          input(type="text")
 
-            div.big-field
-                // Description field
-                label(for="description") Description:
-                textarea#description(type="text", rows="30", cols="30")
+        div.box
+          label Træk Kapacitet
+          input(type="text")
 
-        div.column
-            // Database data field
-            label(for="dbData") Database Data:
-            input#dbData(type="text")
+        div.box
+          label Model
+          input(type="text")
 
-            // Price field
-            label(for="price") Price:
-            input#price(type="text")
+        div.box
+          label Brand
+          input(type="text")
 
-            // License plate field
-            label(for="licensePlate") License Plate:
+        div.lower-boxes
+          div.box
+            label Pris
+            input(type="text", value="#{annonceInfo.pris}")
+
+          div.box
+            label Nummerplade
             input#licensePlate(type="text")
 
-    // Submit button
-    button.button-style(type="submit") Submit
+          div.box
+            button.button-style(type="button") Opret Annonce
+
+    footer.footer
+      hr(size="2", width="90%", color="black")
+      // Footer indhold her
+
     
     footer.footer
       hr(size="2", width="90%", color="black")
