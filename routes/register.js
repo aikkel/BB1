@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 // Register route
 router.post('/', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password,city,phone } = req.body;
 
     // Generate salt
     const salt = await bcrypt.genSalt(12);
@@ -21,10 +21,10 @@ router.post('/', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Save the email and hashed password to the database
-    await db.User.create({ email, password: hashedPassword });
+    await db.User.create({ email, password: hashedPassword,city,phone });
    
     // ???? hvorfor json redirect uden en vej tilbage?, hvis "User = tilbage vej = changes gone?"
-    res.status(200).json({ message: 'User registered successfully' });
+    res.render('minside');
   } catch (error) {
     if (error.name === 'SequelizeUniqueConstraintError') {
       res.render('register', { error: 'Email er allerede taget' });

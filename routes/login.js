@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 });
 
 
-
 /* Post user input */
 router.post('/', async (req, res) => {
   const { email, password } = req.body;
