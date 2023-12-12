@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
   const { currentEmail, currentPassword, newEmail, newPassword } = req.body;
 
   // Check if all required fields are provided
-  if (!currentEmail || !currentPassword || !newEmail || !newPassword) {
+  if (!currentEmail || !currentPassword) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
@@ -34,12 +34,14 @@ router.post('/', async (req, res) => {
     }
 
     // Hash the new password
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    const hashedPassword = await bcrypt.hash(newPassword, 12);
 
     // Update the user's email and password
     await user.update({
       email: newEmail,
-      password: newPassword
+      password: newPassword,
+      phone: newPhone,
+      city: newCity
     });
 
     // Redirect or send response after updating

@@ -1,7 +1,29 @@
 doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title index
+    script(src="/public/javascripts/index.js", type="text/javascript")
+    link(rel="stylesheet", href="/public/stylesheets/style.css")
+    link(rel="stylesheet", href="/public/stylesheets/nyeAnnonce.css")
+    script(src="javascripts/index.js", type="text/javascript")
+    link(rel="stylesheet", href="stylesheets/style.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+  body
+    header.container
+      div.header
+        div.header-content
+          a(href="/")
+            img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
+          div.header-text Basensbiler
+        div.content-header
+          a(href="/minside", class="header-box") Min side
+          a(href="/login", class="header-box2") Login
+    doctype html
 html
   head
-    title Update Page
+    title Opdater brugerinfo
     link(rel="stylesheet", href="/path/to/your/css")
     script(src="/path/to/your/javascript")
 
@@ -11,19 +33,53 @@ html
 
     main
       form(method='POST', action='/update')
-        h2 Current Login
+        h2 Nuværende info
         label(for="currentEmail") Current Email:
         input(type="email", id="currentEmail", name="currentEmail" required)
         label(for="currentPassword") Current Password:
         input(type="password", id="currentPassword", name="currentPassword" required)
+        label(for="currentEmail") Nuværende e-mail:
+        input(type="phone", id="currentPhone", name="currentPhone")
+        label(for="currentEmail") Nuværende by:
+        input(type="city", id=" currentCity", name="currentCity")
+        
+        h2 Ny info
+        label(for="newEmail") Ny e-mail:
+        input(type="email", id="newEmail", name="newEmail")
+        label(for="newPassword") Nyt password:
+        input(type="password", id="newPassword", name="newPassword")
+        label(for="newPhone") Nyt telefonummer:
+        input(type="phone", id="newPhone", name="newPhone")
+        label(for="newCity") Ny by:
+        input(type="newCity", id="newCity", name="newCity")
+        
 
-        h2 New Login
-        label(for="newEmail") New Email:
-        input(type="email", id="newEmail", name="newEmail" required)
-        label(for="newPassword") New Password:
-        input(type="password", id="newPassword", name="newPassword" required)
-
-        button(type="submit") Update
-
-    footer
-      // Your footer content
+        button(type="submit") Opdater Info
+        
+    footer.footer
+      hr(size="2", width="90%", color="black")
+      div
+        h1
+          u Basensbiler
+        p.ptext
+          b Schibsted Denmark ApS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Wildersgade 8
+        p.ptext 1408 København K
+        p.ptext Danmark
+      div
+        h1
+          u Service
+        p.ptext
+          b E-mail: keglemand@basensbiler.dk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Tel.: +45 5672 0707
+        p.ptext Mob.: +45 2096 6949
+        p.ptext CVR.no.: 20618175
+      div
+        h1
+          u Ejerforhold
+        p.ptext
+          b Direktør: Kevin Dyhr Mortensen  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Vicedirektør: Jakob Foersom
+        p.ptext Økonomichef: Sercan Oruc
+        p.ptext Marketingschef: Lucas Wolthers Havenkvist
+        p.ptext Teknologichef: Emil Rud Peitersen
