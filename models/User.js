@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.TEXT,
             allowNull: false
+        },
+        city: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        phone: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     }, {
         tableName: 'User', // specifying the table name since it's singular

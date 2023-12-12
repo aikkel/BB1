@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Save the email and hashed password to the database
-    await db.User.create({ email, password: hashedPassword,city,phone });
+    await db.User.create({ email, password: hashedPassword, city, phone });
    
     // ???? hvorfor json redirect uden en vej tilbage?, hvis "User = tilbage vej = changes gone?"
     res.render('minside');
@@ -39,9 +39,9 @@ router.post('/', async (req, res) => {
 app.use(bodyParser.json());
 
 app.post('/createUser', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, city, phone } = req.body;
   try {
-    const user = await db.createUser(email, password);
+    const user = await db.createUser(email, password, city, phone);
     res.json(user);
   } catch (err) {
     res.status(500).json({ error: err.message });
