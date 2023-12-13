@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Car', {
-        licencePlate: {
+    const Car = sequelize.define('Car', {
+         licencePlate: {
             type: DataTypes.TEXT,
             primaryKey: true,
         },
@@ -12,4 +12,5 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'Car', // specifying the table name since it's singular
         timestamps: false
     });
+    return Car;
 };
