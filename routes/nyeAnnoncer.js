@@ -39,34 +39,47 @@ router.post('/', async (req, res) => {
             }
         } 
         // Inside your POST route
-            else if (action === 'createAdvert') {
-                const { price, description, model, brand } = req.body;
-                const licencePlate = req.session.registration; // Retrieve licencePlate from session
+        else if (action === 'createAdvert') {
+            const { price, description, model, brand } = req.body;
+            const licencePlate = req.session.registration; // Retrieve licencePlate from session
+            const vehicleData = req.session.vehicleData; // Retrieve vehicle data from session
+            const userID = req.session.userID; // Retrieve userID from session
 
-                console.log("Licence Plate from session:", licencePlate); // Log the licence plate
-
-                // Check if the car exists
-                const car = await Car.findOne({ where: { licencePlate: licencePlate } });
-                if (!car) {
-                    console.log("Car not found for licence plate:", licencePlate); // Log if car not found
-                    return res.status(400).send('No car found with the provided licence plate');
+        
+            if (!vehicleData) {
+                return res.status(400).send('Vehicle data not found. Please fetch vehicle data first.');
+            }
+        
+            // Optionally, create or update the Car record in your database
+            // This step depends on your application's requirements
+            const [car, created] = await Car.findOrCreate({
+                where: { licencePlate: licencePlate },
+                defaults: {
+                    // Assuming these fields are in your vehicleData
+                    model: vehicleData.model,
+                    manufacture: vehicleData.manufacture,
+                    year: vehicleData.year,
+                    SIInfo: vehicleData.SIInfo
                 }
-
-                // If the car exists, create the advert
-                await Advert.create({
-                    userID: userID, // Make sure this userID exists in the User table
-                    licencePlate: licencePlate,
-                    description: description,
-                    model: model,
-                    manufacture: brand,
-                    price: price
-                });
-
-                // Clear the stored data after use
-                delete req.session.registration;
-
-                res.redirect('/minside');
-            } else {
+            });
+        
+            // Create the advert
+            await Advert.create({
+                userID: userID, // Make sure this userID exists in the User table
+                licencePlate: licencePlate,
+                description: description,
+                model: model,
+                manufacture: brand,
+                price: price
+            });
+        
+            // Clear the stored data after use
+            delete req.session.registration;
+            delete req.session.vehicleData;
+        
+            res.redirect('/minside');
+        }
+         else {
                 res.status(400).send('Vehicle registration and data are required');
         }
     } catch (error) {

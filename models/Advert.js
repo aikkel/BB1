@@ -14,6 +14,13 @@ module.exports = (sequelize) => {
               key: 'licencePlate'
             }
           }, 
+        userID: {
+            type: DataTypes.INTEGER,
+            references: {
+            model: 'User',
+            key: 'id'
+          }
+        },
         description: DataTypes.TEXT, 
         model: DataTypes.TEXT,       // Assuming model is text
         manufacture: DataTypes.TEXT, // Assuming manufacture is text

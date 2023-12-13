@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         city: DataTypes.STRING
 
     }, {
-        tableName: 'User', // specifying the table name since it's singular
+        tableName: 'User', // specifying the table name since it's singular (Sequelize will assume plural otherwise)
         timestamps: false,
         });
       
