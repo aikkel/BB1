@@ -16,7 +16,13 @@ html(lang="en")
           a(href="/")
             img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
           div.header-text Basensbiler
+        
         div.header-sogning
+          input(type="text", placeholder="Indtast pris, model, brand.....")
+          button.sogningknap
+            i.fas.fa-search
+        
+        //- div.header-sogning
           form(action="/minside" method="post")
             label(for="registration" class="labelnavn") Registration:
             input(type="text" id="registration" name="registration" class="inputnavn")
