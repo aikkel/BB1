@@ -9,7 +9,6 @@ const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: path.join(__dirname, '../Database/BBDB.db') //path.join combines relative path segments into an absolute path
 });
-const AdvertModel = require('../models/Advert')(sequelize);; // Path to the Advert model
 const User = UserModel(sequelize, Sequelize);
 
 
@@ -24,6 +23,7 @@ async function createUser(email, password) {
 }
 // const Advert = AdvertModel(sequelize, Sequelize);
 const Advert = require('../models/Advert')(sequelize);
+const Car = require('../models/Car')(sequelize, Sequelize.DataTypes);
 
 async function getAdverts() {
   const adverts = await Advert.findAll();
@@ -38,4 +38,5 @@ sequelize.sync();
     getAdverts,
     Advert,
     sequelize,
+    Car,
 };

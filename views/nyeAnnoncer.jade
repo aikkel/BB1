@@ -22,39 +22,60 @@ html(lang="en")
     div.content
       div.left-side
         h2 Kontakt Information
-        p #{brugerInfo.email}
-        p #{brugerInfo.city}
-        p #{brugerInfo.phone}
-        // Tilføj yderligere brugerinfo her
+        p #{kontaktInfo.email}
+        p #{kontaktInfo.city}
+        p #{kontaktInfo.phone}
 
-      div.right-side
-        div.box
-          label Længde
-          input(type="text")
+        form(method="post" action="/nyeAnnoncer")
+          div
+            input(type='hidden', name='action', value='fetchVehicleData')
+            label(for="registration") Nummerplade:
+            input(type="text" id="registration" name="registration" placeholder="Nummerplade")
+            button(type="submit") Hent bil information
 
-        div.box
-          label Træk Kapacitet
-          input(type="text")
-
-        div.box
-          label Model
-          input(type="text")
-
-        div.box
-          label Brand
-          input(type="text")
-
-        div.lower-boxes
+    
+      if vehicleData
+        div.middle-side
           div.box
-            label Pris
-            input(type="text", value="#{annonceInfo.pris}")
+            label Længde &nbsp;
+            input(type="text" value=vehicleData.length readonly)
 
           div.box
-            label Nummerplade
-            input#licensePlate(type="text")
+            label Træk Kapacitet &nbsp;
+            input(type="text" value=vehicleData.towing_weight readonly)
 
           div.box
-            button.button-style(type="button") Opret Annonce
+            label Modelår &nbsp;
+            input(type="text" value=vehicleData.model_year readonly)
+
+          div.box
+            label Brand &nbsp;
+            input(type="text" value=vehicleData.brand readonly)
+
+          div.box
+            label Model &nbsp;
+            input(type="text" value=vehicleData.model readonly)
+
+          div.box
+            label Vægt &nbsp;
+            input(type="text" value=vehicleData.weight readonly)
+
+        form(method="post" action="/nyeAnnoncer")
+          div.box
+            input(type='hidden', name='action', value='createAdvert')
+
+            // Include vehicle data as hidden fields
+            input(type='hidden', name='length', value=vehicleData.length)
+            input(type='hidden', name='towing_weight', value=vehicleData.towing_weight)
+            input(type='hidden', name='model_year', value=vehicleData.model_year)
+            input(type='hidden', name='brand', value=vehicleData.brand)
+            input(type='hidden', name='model', value=vehicleData.model)
+            input(type='hidden', name='weight', value=vehicleData.weight)
+
+            // User input for price
+            label Pris &nbsp;
+            input(type="text" name="price")
+            button(type="submit") Opret Annonce
 
     footer.footer
       hr(size="2", width="90%", color="black")
