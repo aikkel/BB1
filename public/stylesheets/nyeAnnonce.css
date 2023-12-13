@@ -32,9 +32,9 @@
   }
 
   .button-style {
-    background-color: #4CAF50; /* Green */
+    background-color: #545faf; /* Green */
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -46,7 +46,6 @@
 }
 
 .button-style:hover {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #4CAF50;
+    background-color: #8890c7; 
+    color: black;
 }

@@ -1,29 +1,95 @@
 doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title index
+    script(src="/public/javascripts/update.js", type="text/javascript")
+    link(rel="stylesheet", href="/public/stylesheets/update.css")
+    link(rel="stylesheet", href="/public/stylesheets/update.css")
+    script(src="javascripts/update.js", type="text/javascript")
+    link(rel="stylesheet", href="stylesheets/update.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+  body
+    header.container
+      div.header
+        div.header-content
+          a(href="/")
+            img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
+          div.header-text Basensbiler
+        div.content-header
+          a(href="/minside", class="header-box") Min side
+          a(href="/")
+            button(onclick="logToConsole()" class="header-box3") Log ud
+    doctype html
 html
   head
-    title Update Page
-    link(rel="stylesheet", href="/path/to/your/css")
-    script(src="/path/to/your/javascript")
+    title Opdater brugerinfo
+    
 
   body
     header
       // Your header content
 
     main
-      form(method='POST', action='/update')
-        h2 Current Login
-        label(for="currentEmail") Current Email:
-        input(type="email", id="currentEmail", name="currentEmail" required)
-        label(for="currentPassword") Current Password:
-        input(type="password", id="currentPassword", name="currentPassword" required)
+      div 
+        form(method='POST', action='/update')
+          div(class="boob1")
+            h2 Nuværende oplysninger
+            label(for="currentEmail") Nuværende E-mail:
+            input(type="email", id="currentEmail", name="currentEmail" required)
+            label(for="currentPassword") Nuværende Adgangskode:
+            input(type="password", id="currentPassword", name="currentPassword" required)
+            label(for="currentEmail") Nuværende By:
+            input(type="city", id=" currentCity", name="currentCity")
+            label(for="currentEmail") Nuværende Telefonnummer:
+            input(type="phone", id="currentPhone", name="currentPhone", maxlenght="8", minlength="8")
+          div(class="boob2")
+            h2 Nye Oplysninger
+            label(for="newEmail") Ny E-mail:
+            input(type="email", id="newEmail", name="newEmail")
+            label(for="newPassword") Ny Adgangskode:
+            input(type="password", id="newPassword", name="newPassword")
+            label(for="newCity") Ny By:
+            input(type="city", id="newCity", name="newCity")
+            label(for="newPhone") Nyt Telefonnummer:
+            input(type="phone", id="newPhone", name="newPhone", maxlenght="8", minlength="8")
+          
+          div(class="boob3")
+            input(type="submit" value="Opdater Oplysninger" id="opdaterinfo" class="opdaterinfo" onclick="sikkerhed()")
 
-        h2 New Login
-        label(for="newEmail") New Email:
-        input(type="email", id="newEmail", name="newEmail" required)
-        label(for="newPassword") New Password:
-        input(type="password", id="newPassword", name="newPassword" required)
 
-        button(type="submit") Update
 
-    footer
-      // Your footer content
+          //- baggrund fiks
+          //- log ud size fiks
+          //- JS confirmation fiks
+          //- Reminders
+
+
+    footer.footer
+      hr(size="2", width="90%", color="black")
+      div
+        h1
+          u Basensbiler
+        p.ptext
+          b Schibsted Denmark ApS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Wildersgade 8
+        p.ptext 1408 København K
+        p.ptext Danmark
+      div
+        h1
+          u Service
+        p.ptext
+          b E-mail: keglemand@basensbiler.dk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Tel.: +45 5672 0707
+        p.ptext Mob.: +45 2096 6949
+        p.ptext CVR.no.: 20618175
+      div
+        h1
+          u Ejerforhold
+        p.ptext
+          b Direktør: Kevin Dyhr Mortensen  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Vicedirektør: Jakob Foersom
+        p.ptext Økonomichef: Sercan Oruc
+        p.ptext Marketingschef: Lucas Wolthers Havenkvist
+        p.ptext Teknologichef: Emil Rud Peitersen

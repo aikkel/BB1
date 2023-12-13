@@ -10,6 +10,66 @@ html {
   /* font skal ændres, sofia vælger + baggrunds farve? */
 }
 
+main {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.boob1 {
+    width: 340;
+    height: 250px;
+    align-items: center;
+    display: grid;
+    padding-bottom: 20px;
+}
+
+.boob2 {
+    width: 340;
+    height: 250px;
+    align-items: center;
+    right: 100%;
+    display: grid;
+    padding-bottom: 40px;
+
+}
+
+.boob3 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.opdaterinfo {
+    background-color: #54afa5;
+    border-radius: 20px;
+    width: 290px;
+    height: 60px;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  margin-top: 20px;
+  display: inline-block;
+  
+}
+
+label {
+    font-size: 1.5em;
+}
+
+
+input {
+    margin-bottom: 10px;
+}
+
+h2 {
+   font-size: 2em;
+   height: 20px;
+   text-decoration: underline;
+}
+
 .footer{
   padding-top: 20px;
   margin-top: auto;
@@ -145,3 +205,19 @@ html {
   display: inline-block;
   vertical-align: middle;
 }
+
+.header-box3 {
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #54afa5;
+    font-size: 2.3em;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    justify-content: space-between;
+    background-color: #545faf;
+    text-decoration: underline;
+    cursor:pointer;
+  }
+
+  
