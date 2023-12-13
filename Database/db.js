@@ -38,5 +38,5 @@ sequelize.sync();
     getAdverts,
     Advert,
     sequelize,
-    Car: Car,
+    Car,
 };
