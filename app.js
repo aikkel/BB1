@@ -15,6 +15,7 @@ var mineAnnoncerRouter = require('./routes/mineAnnoncer')
 var annonceRouter = require('./routes/annonce');
 var updateRouter = require('./routes/update');
 var nyeAnnoncerRouter = require('./routes/nyeAnnoncer');
+var sletteAnnoncerRouter = require('./routes/sletteAnnoncer');
 
 var app = express();
 
@@ -45,6 +46,8 @@ app.use('/mineAnnoncer', mineAnnoncerRouter);
 app.use('/annonce', annonceRouter);
 app.use('/update', updateRouter);
 app.use('/nyeAnnoncer', nyeAnnoncerRouter);
+app.use('/sletteAnnoncer', sletteAnnoncerRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
