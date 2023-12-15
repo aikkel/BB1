@@ -7,7 +7,6 @@ html {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: white;
-  /* font skal ændres, sofia vælger + baggrunds farve? */
 }
 
 .loginform {
@@ -18,8 +17,6 @@ html {
     margin-top: 40px;
   }
 
-
-
 .footer{
   padding-top: 20px;
   margin-top: auto;
@@ -29,8 +26,6 @@ html {
   gap: 50px;
   padding-bottom: 20px;
   background-color: #545faf;
-
-  /* color placeholder for sofia + du kan ændre bare alt hvad du vil om det er str, farve, længde etc., dette er bare som et startpunkt */
 }
 
 .container {
@@ -44,12 +39,11 @@ html {
 
 .header {
   display: flex;
-  justify-content: space-between; /* Align children with space between them */
-  align-items: center; /* Vertically align children */
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   border-bottom: 1px solid #ccc;
 }
-
 
 .header-content {
   display: flex;
@@ -75,10 +69,6 @@ html {
   margin-top: 10px;
   display: inline;
   color: #54afa5;
-}
-
-h2 {
-  color: red;
 }
 
 .test {
@@ -146,7 +136,6 @@ h2 {
   justify-content: space-between;
   margin-top: 20px;
   float: right;
-  /* fix float value */
 }
 
 .header-sogning input, .header-sogning button {

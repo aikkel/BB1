@@ -22,11 +22,11 @@ module.exports = (sequelize) => {
           }
         },
         description: DataTypes.TEXT, 
-        model: DataTypes.TEXT,       // Assuming model is text
-        manufacture: DataTypes.TEXT, // Assuming manufacture is text
+        model: DataTypes.TEXT,
+        manufacture: DataTypes.TEXT,
         year: DataTypes.INTEGER,
         price: DataTypes.INTEGER,    
-        picture: DataTypes.TEXT       // Assuming picture is a URL or file path
+        picture: DataTypes.TEXT // Assuming picture is a URL or file path
     }, {
         tableName: 'Advert', // specifying the table name since it's singular
         timestamps: false

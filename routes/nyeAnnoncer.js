@@ -31,7 +31,6 @@ router.post('/', async (req, res) => {
                     req.session.registration = registration; // Store registration in session
                     res.render('nyeAnnoncer', { kontaktInfo: user, vehicleData: vehicleData });
                 }).catch(error => {
-                    console.error('Failed to fetch vehicle data:', error);
                     res.status(500).send('Failed to fetch vehicle data');
                 });
             } else {
@@ -45,17 +44,13 @@ router.post('/', async (req, res) => {
             const vehicleData = req.session.vehicleData; // Retrieve vehicle data from session
             const userID = req.session.userID; // Retrieve userID from session
 
-        
             if (!vehicleData) {
                 return res.status(400).send('Vehicle data not found. Please fetch vehicle data first.');
             }
         
-            // Optionally, create or update the Car record in your database
-            // This step depends on your application's requirements
             const [car, created] = await Car.findOrCreate({
                 where: { licencePlate: licencePlate },
                 defaults: {
-                    // Assuming these fields are in your vehicleData
                     model: vehicleData.model,
                     manufacture: vehicleData.manufacture,
                     year: vehicleData.year,
@@ -63,9 +58,8 @@ router.post('/', async (req, res) => {
                 }
             });
         
-            // Create the advert
             await Advert.create({
-                userID: userID, // Make sure this userID exists in the User table
+                userID: userID,
                 licencePlate: licencePlate,
                 description: description,
                 model: model,
@@ -73,7 +67,6 @@ router.post('/', async (req, res) => {
                 price: price
             });
         
-            // Clear the stored data after use
             delete req.session.registration;
             delete req.session.vehicleData;
         
@@ -83,11 +76,9 @@ router.post('/', async (req, res) => {
                 res.status(400).send('Vehicle registration and data are required');
         }
     } catch (error) {
-        console.error('An error occurred:', error);
         res.status(500).send('Internal server error');
     }
 });
-
 
 router.get('/', async (req, res) => {
     try {
@@ -106,8 +97,8 @@ router.get('/', async (req, res) => {
         } else {
             res.redirect('/login');
         }
+
     } catch (error) {
-        console.error('An error occurred:', error);
         res.status(500).send('Internal server error');
     }
 });

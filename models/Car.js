@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
         year: DataTypes.INTEGER,
         SIInfo: DataTypes.TEXT
     }, {
-        tableName: 'Car', // specifying the table name since it's singular
+        tableName: 'Car', // specifying the table name since it's singular (Sequelize will assume plural otherwise)
         timestamps: false
     });
     return Car;

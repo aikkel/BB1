@@ -7,7 +7,7 @@ const UserModel = require('../models/User');
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: path.join(__dirname, '../Database/BBDB.db') //path.join combines relative path segments into an absolute path
+  storage: path.join(__dirname, '../Database/BBDB.db')
 });
 const User = UserModel(sequelize, Sequelize);
 
@@ -21,7 +21,7 @@ async function createUser(email, password) {
     });
     return newUser;
 }
-// const Advert = AdvertModel(sequelize, Sequelize);
+
 const Advert = require('../models/Advert')(sequelize);
 const Car = require('../models/Car')(sequelize, Sequelize.DataTypes);
 
