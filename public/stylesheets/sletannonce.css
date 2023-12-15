@@ -175,3 +175,18 @@ h1 {
     text-decoration: underline;
     cursor:pointer;
   }
+
+  .sletan {
+    background-color: #54afa5;
+    border-radius: 20px;
+    width: 290px;
+    height: 60px;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+    text-align:  center;
+    margin-top: 20px;
+    display: inline-block;
+    cursor: pointer;
+  
+  }

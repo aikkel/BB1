@@ -260,6 +260,7 @@ h2 {
   text-align: center;
   margin-top: 20px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .yuumi {
@@ -273,4 +274,5 @@ h2 {
   text-align: center;
   margin-top: 20px;
   display: inline-block;
+  cursor: pointer;
 }

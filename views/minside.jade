@@ -22,7 +22,7 @@ html(lang="en")
           input(type="text", placeholder="Indtast pris, model, brand.....")
           button.sogningknap
             i.fas.fa-search
-wait
+
         div.content-header
           a(href="/minside", class="header-box") Min side
           a(href="/")
@@ -31,14 +31,15 @@ wait
 
     div.content
       div.boks Forslag
-        div 
-          a(href="/nyeAnnoncer")
-            button(class="nyeAnnoncer") Nye Annoncer
-          a(href="/sletteAnnoncer")  
-            button(class="sletteAnnoncer") Slet Annoncer
       div.boks2 Egne Annoncer
         iframe(src="/mineAnnoncer", width="100%", height="100%", frameborder="0")
       
+    div 
+      a(href="/nyeAnnoncer")
+            button(class="diana") Nye Annoncer
+      a(href="/sletteAnnoncer") 
+            button(class="gnar") Slet Annoncer
+
     footer.footer
       hr(size="2", width="90%", color="black")
       div

@@ -227,3 +227,32 @@ html {
   border-radius: 5px;
   padding: 15px;
 }
+
+.gnar {
+  background-color: #54afa5;
+  border-radius: 20px;
+  width: 290px;
+  height: 60px;
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.diana {
+  background-color: #54afa5;
+  border-radius: 20px;
+  width: 290px;
+  height: 60px;
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  text-align:  center;
+  margin-top: 20px;
+  display: inline-block;
+  cursor: pointer;
+
+}
