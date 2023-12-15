@@ -21,19 +21,6 @@ html(lang="en")
           input(type="text", placeholder="Indtast pris, model, brand.....")
           button.sogningknap
             i.fas.fa-search
-        
-        //- div.header-sogning
-          form(action="/minside" method="post")
-            label(for="registration" class="labelnavn") Registration:
-            input(type="text" id="registration" name="registration" class="inputnavn")
-            label(for="registration" class="labelnavn") Brand:
-            input(type="text" id="brand" name="brand" class="inputnavn")
-            label(for="registration" class="labelnavn") Vin:
-            input(type="text" id="vin" name="vin" class="inputnavn")
-            input(type="submit" class="knapafsoeg" value="Søg")
-
-          
-
 
         div.content-header
           a(href="/minside", class="header-box") Min side
@@ -41,12 +28,11 @@ html(lang="en")
             button(onclick="logToConsole()" class="header-box3") Log ud
           a(href="/update", class="header-box2") Opdater
 
-
     div.content
       div.boks Forslag
       div.boks2 Egne Annoncer
         iframe(src="/mineAnnoncer", width="100%", height="100%", frameborder="0")
-      //- fiks sizing shit
+      
     footer.footer
       hr(size="2", width="90%", color="black")
       div

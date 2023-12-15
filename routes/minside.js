@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../Database/db.js');
-const FilteredApiService = require('../services/FilteredApiService.js'); // Import the FilteredApiService class
+
+const FilteredApiService = require('../services/FilteredApiService.js');
 const ApiService = require('../services/ApiService.js');
+
+//Future update should use enviorment variables(personal variables.) for the api key.
 const apiService = new ApiService('https://api.nrpla.de', 'xptQbIKH1AyItGP0TCiv8BcIo3rFHiIyA7GI3QdOESidtD0oJeSDPbEyRzqL5mlc');
-const filteredApiService = new FilteredApiService(apiService); // Create an instance of FilteredApiService
+const filteredApiService = new FilteredApiService(apiService);
 
 // Middleware to check if user is logged in
 function isAuthenticated(req, res, next) {
@@ -18,13 +20,10 @@ function isAuthenticated(req, res, next) {
 router.post('/',isAuthenticated, function(req, res, next) {
   let registration = req.body.registration;
 
-  if (registration) {
-    // Get vehicle data by registration
+  if (registration) { //Requests the filtered data object.
     filteredApiService.makeRequest(`${registration}`).then(data => {
-      console.log(data); // This will log the filtered data
-      res.json(data); // This will send the filtered data as a JSON response
+      res.json(data);
     }).catch(error => {
-      console.error('Failed to fetch vehicle data:', error);
       res.status(500).send('Failed to fetch vehicle data');
     }); 
   } else {
@@ -49,9 +48,7 @@ router.get('/', isAuthenticated, async function(req, res, next) {
   const user = await User.findOne({ where: { id: req.session.userID } });
   if (user) {
     const { email, password } = user;
-    console.log(email, password);
   }
-  console.log(req.session.userID);
   res.render('minside', { title: 'blobbbs' });
 });
 
