@@ -148,7 +148,7 @@ html {
 }
 
 .header-sogning input {
-  width: 200px;3
+  width: 200px;
   height: 30px;
   border: 1px solid #000;
   border-radius: 5px;
@@ -210,4 +210,72 @@ html {
   background-color: #545faf;
   text-decoration: underline;
   cursor:pointer;
+}
+
+h2 {
+  text-decoration: underline;
+  font-size: 2em;
+}
+
+.lux {
+  width: 340;
+  align-items: center;
+  display: grid;
+  padding-left: 20px;
+}
+
+.pantheon {
+  width: 340;
+  align-items: center;
+  display: grid;
+  padding-bottom: 5px;
+}
+
+.aatrox {
+  width: 340;
+  height: 250px;
+  align-items: center;
+  right: 100%;
+  display: grid;
+  padding-bottom: 40px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.seraphine {
+  width: 340;
+  height: 250px;
+  align-items: center;
+  right: 100%;
+  display: grid;
+  padding-bottom: 40px;
+  font-size: 1.5em;
+  padding-right: 20px;
+}
+
+
+.draven {
+  background-color: #54afa5;
+  border-radius: 20px;
+  width: 210px;
+  height: 60px;
+  font-size: 1.5em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.yuumi {
+  background-color: #54afa5;
+  border-radius: 20px;
+  width: 170px;
+  height: 60px;
+  font-size: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  display: inline-block;
 }

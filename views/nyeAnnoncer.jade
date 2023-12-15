@@ -3,7 +3,7 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title index
+    title nyeannoncer
     script(src="/public/javascripts/nyeAnnoncer.js", type="text/javascript")
     link(rel="stylesheet", href="/public/stylesheets/nyeAnnonce.css")
     script(src="javascripts/nyeAnnoncer.js", type="text/javascript")
@@ -22,48 +22,45 @@ html(lang="en")
             button(onclick="logToConsole()" class="header-box3") Log ud
 
     div.content
-      div.left-side
+      div(class="lux")
         h2 Kontakt Information
-        p #{kontaktInfo.email}
-        p #{kontaktInfo.city}
-        p #{kontaktInfo.phone}
+        p Sælger's Email: #{kontaktInfo.email}
+        p Sælger's By: #{kontaktInfo.city}
+        p Sælger's Tlf: #{kontaktInfo.phone}
 
         form(method="post" action="/nyeAnnoncer")
-          div
+          div(class="pantheon")
             input(type='hidden', name='action', value='fetchVehicleData')
-            label(for="registration") Nummerplade:
-            input(type="text" id="registration" name="registration" placeholder="Nummerplade")
-            button(type="submit") Hent bil information
+            label(for="registration") Indtast Nummerplade:
+            input(type="text" id="registration" name="registration" placeholder="Nummerplade....")
+            button(type="submit" class="draven") Hent bil information
 
     
       if vehicleData
         div.middle-side
-          div.box
-            label Længde &nbsp;
-            input(type="text" value=vehicleData.length readonly)
+          div.box(class="aatrox")
+            h2 Bil Information:
 
-          div.box
-            label Træk Kapacitet &nbsp;
-            input(type="text" value=vehicleData.towing_weight readonly)
-
-          div.box
-            label Modelår &nbsp;
-            input(type="text" value=vehicleData.model_year readonly)
-
-          div.box
             label Brand &nbsp;
             input(type="text" value=vehicleData.brand readonly)
 
-          div.box
             label Model &nbsp;
             input(type="text" value=vehicleData.model readonly)
 
-          div.box
+            label Modelår &nbsp;
+            input(type="text" value=vehicleData.model_year readonly)
+
+            label Længde &nbsp;
+            input(type="text" value=vehicleData.length readonly)
+
+            label Træk Kapacitet &nbsp;
+            input(type="text" value=vehicleData.towing_weight readonly)
+
             label Vægt &nbsp;
             input(type="text" value=vehicleData.weight readonly)
 
         form(method="post" action="/nyeAnnoncer")
-          div.box
+          div.box(class="seraphine")
             input(type='hidden', name='action', value='createAdvert')
 
             // Include vehicle data as hidden fields
@@ -75,9 +72,10 @@ html(lang="en")
             input(type='hidden', name='weight', value=vehicleData.weight)
 
             // User input for price
-            label Pris &nbsp;
-            input(type="text" name="price")
-            button(type="submit") Opret Annonce
+            h2 Pris
+            label Indtast pris på køretøjet &nbsp;
+            input(type="text" name="price" placeholder="Pris....")
+            button(type="submit" class="yuumi") Opret Annonce
 
     footer.footer
       hr(size="2", width="90%", color="black")

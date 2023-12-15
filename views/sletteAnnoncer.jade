@@ -2,10 +2,10 @@ doctype html
 html
   head
     title Annonce
-    script(src="/public/javascripts/annonce.js", type="text/javascript")
-    link(rel="stylesheet", href="/public/stylesheets/annonce.css")
-    script(src="javascripts/annonce.js", type="text/javascript")
-    link(rel="stylesheet", href="stylesheets/annonce.css")
+    script(src="/public/javascripts/sletannonce.js", type="text/javascript")
+    link(rel="stylesheet", href="/public/stylesheets/sletannonce.css")
+    script(src="javascripts/sletannonce.js", type="text/javascript")
+    link(rel="stylesheet", href="stylesheets/sletannonce.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
 
   body
@@ -15,17 +15,47 @@ html
           a(href="/")
             img.logo(src="https://raw.githubusercontent.com/aikkel/BB1/main/public/images/logoub.png", alt="Logo")
           div.header-text Basensbiler
-        div.header-sogning
-        
-          h1 SletteMette
-        form(method="POST", action="/sletteAnnoncer/delete")
-            label(for="advertID" required) Enter advert ID:
-            input(type="text", id="advertID", name="advertID")
-            button(type="submit") Delete Advertisement
-
         div.content-header
-          a(href="", class="header-box") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          a(href="", class="header-box2") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          a(href="/minside", class="header-box") Min side
+          a(href="/")
+            button(onclick="logToConsole()" class="header-box3") Log ud
         
-    div 
+    div(class="dva") 
+      h1 Slet Annonce
+      form(method="POST", action="/sletteAnnoncer/delete")
+        label(for="advertID" required) Indtast AdvertID:
+        input(type="text", id="advertID", name="advertID")
+      div(class="mercy")
+        button(type="submit" class="sletan") Slet Annonce
 
+        
+
+
+
+footer.footer
+      hr(size="2", width="90%", color="black")
+      div
+        h1
+          u Basensbiler
+        p.ptext
+          b Schibsted Denmark ApS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Wildersgade 8
+        p.ptext 1408 København K
+        p.ptext Danmark
+      div
+        h1
+          u Service
+        p.ptext
+          b E-mail: keglemand@basensbiler.dk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Tel.: +45 5672 0707
+        p.ptext Mob.: +45 2096 6949
+        p.ptext CVR.no.: 20618175
+      div
+        h1
+          u Ejerforhold
+        p.ptext
+          b Direktør: Kevin Dyhr Mortensen  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        p.ptext Vicedirektør: Jakob Foersom
+        p.ptext Økonomichef: Sercan Oruc
+        p.ptext Marketingschef: Lucas Wolthers Havenkvist
+        p.ptext Teknologichef: Emil Rud Peitersen
